@@ -21,8 +21,7 @@ app.use(cors({
         'http://localhost:3000', 
         'http://localhost:4000', 
         'http://api.spotify.com',
-        'http://guileless-rabanadas-1bfb30.netlify.app',
-        'http://main--guileless-rabanadas-1bfb30.netlify.app/',
+        'https://spotify-with-friends.netlify.app/',
         'http://spotify-with-friends.herokuapp.com/'
     ]
 }));
