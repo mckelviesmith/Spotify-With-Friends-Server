@@ -16,10 +16,10 @@ mongoose.connect(uri);
 // Use middleware
 const app = express();
 app.use(cors({
+    preflightContinue: true,
     credentials: true,
     origin: [
-        'http://localhost:3000', 
-        'http://localhost:4000', 
+        'http://localhost:3000',
         'http://api.spotify.com',
         'https://spotify-with-friends.netlify.app/',
         'http://spotify-with-friends.herokuapp.com/'
