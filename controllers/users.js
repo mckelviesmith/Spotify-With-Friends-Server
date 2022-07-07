@@ -57,12 +57,12 @@ const logout = (req, res) => {
 const profile = (req, res) => {
     const currentUser = req.session['currentUser'];
     if (currentUser) {
+        res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
+        res.header("Access-Control-Allow-Credentials", true);
         res.json(currentUser);
     } else {
         res.send(503);
     }
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
-    res.header("Access-Control-Allow-Credentials", true);
 };
 
 // ------------------------------------------------
