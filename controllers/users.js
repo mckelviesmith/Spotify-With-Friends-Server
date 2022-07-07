@@ -15,7 +15,7 @@ const createUser = async (req, res) => {
         req.session['currentUser'] = insertedUser;
         res.json(insertedUser);
     }
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app/");
+    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
 };
 
 const updateCurrentUser = async (req, res) => {
@@ -31,7 +31,7 @@ const updateCurrentUser = async (req, res) => {
         req.session['currentUser'] = updatedUser;
         res.send(status);
     }
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app/");
+    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
 };
 
 const login = async (req, res) => {
@@ -43,7 +43,7 @@ const login = async (req, res) => {
     } else {
         return res.send(503);
     }
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app/");
+    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
 };
   
 const logout = (req, res) => {
@@ -58,7 +58,7 @@ const profile = (req, res) => {
     } else {
         res.send(503);
     }
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app/");
+    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
 };
 
 // ------------------------------------------------
@@ -66,34 +66,34 @@ const profile = (req, res) => {
 const findUsersFollowers = async (req, res) => {
     const user = await usersDao.findUserById(req.params.id);
     const followers = await usersDao.findUsers(user.followers);
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app/");
+    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
     res.json(followers);
 };
 
 const findUsersFollowing = async (req, res) => {
     const user = await usersDao.findUserById(req.params.id);
     const following = await usersDao.findUsers(user.following);
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app/");
+    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
     res.json(following);
 };
 
 const findAllUsers = async (req, res) => {
     const users = await usersDao.findAllUsers();
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app/");
+    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
     res.json(users);
 };
 
 const findUserById = async (req, res) => {
     const userToFind = req.params.id;
     const user = await usersDao.findUserById(userToFind);
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app/");
+    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
     res.json(user);
 };
 
 const findUserByUsername = async (req, res) => {
     const username = req.params.username;
     const user = await usersDao.findUserByUsername(username);
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app/");
+    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
     res.json(user);
 };
 
@@ -108,14 +108,14 @@ const findUserByCredentials = async (req, res) => {
     } else {
         res.send(403);
     }
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app/");
+    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
 };
 
 const updateUser = async (req, res) => {
     const userToUpdate = req.params.id;
     const updatedUser = req.body;
     const status = await usersDao.updateUser(userToUpdate, updatedUser);
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app/");
+    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
     res.send(status);
 };
 

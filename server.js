@@ -21,8 +21,8 @@ app.use(cors({
     origin: [
         'http://localhost:3000',
         'http://api.spotify.com',
-        'https://spotify-with-friends.netlify.app/',
-        'http://spotify-with-friends.herokuapp.com/'
+        'https://spotify-with-friends.netlify.app',
+        'http://spotify-with-friends.herokuapp.com'
     ]
 }));
 app.use(express.json());
