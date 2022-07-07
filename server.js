@@ -22,7 +22,7 @@ app.use(cors({
         'http://localhost:3000',
         'http://api.spotify.com',
         'https://spotify-with-friends.netlify.app',
-        'http://spotify-with-friends.herokuapp.com'
+        'http://spotify-with-friends.herokuapp.com/'
     ]
 }));
 app.use(express.json());
@@ -38,7 +38,7 @@ const sess = {
 if (app.get('env') === 'production') {
     app.set('trust proxy', 1); // trust first proxy
     sess.cookie.secure = true; // serve secure cookies
-    sess.cookie.sameSite = false;
+    sess.cookie.SameSite=None;
 }
 
 app.use(session(sess));
