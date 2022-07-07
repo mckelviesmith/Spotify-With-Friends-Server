@@ -30,7 +30,7 @@ app.use(express.json());
 // session middleware
 const sess = {
     secret: process.env.SESSION_SECRET,
-    cookie: {SameSite: 'none', secure: true},
+    cookie: {SameSite: 'None', secure: true},
     resave: true,
     saveUninitialized: true,
 };
