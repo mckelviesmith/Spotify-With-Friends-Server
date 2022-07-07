@@ -12,11 +12,11 @@ const createUser = async (req, res) => {
     } else {
         newUser._id = nanoid();
         const insertedUser = await usersDao.createUser(newUser);
+        res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
+        res.header("Access-Control-Allow-Credentials", true);
         req.session['currentUser'] = insertedUser;
         res.json(insertedUser);
     }
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
-    res.header("Access-Control-Allow-Credentials", true);
 };
 
 const updateCurrentUser = async (req, res) => {
