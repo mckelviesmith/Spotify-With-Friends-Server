@@ -30,7 +30,7 @@ app.use(express.json());
 // session middleware
 const sess = {
     secret: process.env.SESSION_SECRET,
-    cookie: {},
+    cookie: {SameSite: 'none', secure: true},
     resave: true,
     saveUninitialized: true,
 };
@@ -38,7 +38,6 @@ const sess = {
 if (app.get('env') === 'production') {
     app.set('trust proxy', 1); // trust first proxy
     sess.cookie.secure = true; // serve secure cookies
-    sess.cookie.SameSite=None;
 }
 
 app.use(session(sess));
