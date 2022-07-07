@@ -37,11 +37,10 @@ const updateCurrentUser = async (req, res) => {
 
 const login = async (req, res) => {
     const existingUser = await usersDao.findUserByCredentials(req.body.username, req.body.password);
-
+    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
+    res.header("Access-Control-Allow-Credentials", true);
     if (existingUser) {
         req.session['currentUser'] = existingUser;
-        res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
-        res.header("Access-Control-Allow-Credentials", true);
         return res.send(existingUser);
     } else {
         return res.send(503);
