@@ -16,6 +16,7 @@ const createUser = async (req, res) => {
         res.json(insertedUser);
     }
     res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
+    res.header("Access-Control-Allow-Credentials", true);
 };
 
 const updateCurrentUser = async (req, res) => {
@@ -39,14 +40,17 @@ const login = async (req, res) => {
 
     if (existingUser) {
         req.session['currentUser'] = existingUser;
+        res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
+        res.header("Access-Control-Allow-Credentials", true);
         return res.send(existingUser);
     } else {
         return res.send(503);
     }
-    res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
+
 };
   
 const logout = (req, res) => {
+    res.header("Access-Control-Allow-Credentials", true);
     req.session.destroy();
     res.send(200);
 }
@@ -59,6 +63,7 @@ const profile = (req, res) => {
         res.send(503);
     }
     res.header("Access-Control-Allow-Origin", "https://spotify-with-friends.netlify.app");
+    res.header("Access-Control-Allow-Credentials", true);
 };
 
 // ------------------------------------------------
